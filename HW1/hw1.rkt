@@ -11,11 +11,10 @@
       1
       (* n (fact (- n 1)))))
 
-;; Problem 2
 (define (comb n k)
   (/ (fact n) (* (fact k) (fact (- n k)))))
 
-;; Problem 3
+;; Problem 2
 (define (zip l1 l2)
   (if (null? l1) l2
       (if (null? l2) l1
