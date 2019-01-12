@@ -19,3 +19,15 @@
   (if (null? l1) l2
       (if (null? l2) l1
       (cons (car l1) (cons (car l2) (zip (cdr l1) (cdr l2)))))))
+
+;; Problem 3
+(define (everyotherIndex l)
+    (if (null? l)
+        '()
+        (cons (car l)
+              (if (null? (cdr l))
+                  '()
+                  (everyotherIndex (cddr l))))))
+
+(define (unzip l)
+    (list (everyotherIndex l) (everyotherIndex (cdr l))))
