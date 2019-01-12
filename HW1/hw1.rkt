@@ -31,3 +31,18 @@
 
 (define (unzip l)
     (list (everyotherIndex l) (everyotherIndex (cdr l))))
+
+
+
+
+
+
+;; Problem 5a
+(define (value l)
+    (car l))
+
+(define (left l)
+    (cadr l))
+
+(define (right l)
+    (caddr l))
