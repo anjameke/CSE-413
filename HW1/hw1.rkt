@@ -46,3 +46,9 @@
 
 (define (right l)
     (caddr l))
+
+;; Problem 5b
+(define (size tree)
+    (if (null? tree)
+        0
+        (+ 1 (size (left tree)) (size (right tree)))))
