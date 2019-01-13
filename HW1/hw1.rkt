@@ -52,3 +52,10 @@
     (if (null? tree)
         0
         (+ 1 (size (left tree)) (size (right tree)))))
+
+;; Problem 5c
+(define (contains item tree)
+    (cond ((null? tree) #f)
+          ((equal? item (value tree)) #t)
+          ((< item (value tree)) (contains item (left tree)))
+          ((> item (value tree)) (contains item (right tree)))))
