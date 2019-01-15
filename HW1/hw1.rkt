@@ -30,7 +30,8 @@
                   (everyotherIndex (cddr l))))))
 
 (define (unzip l)
-    (list (everyotherIndex l) (everyotherIndex (cdr l))))
+    (if (null? l) '()
+    (list (everyotherIndex l) (everyotherIndex (cdr l)))))
 
 ;; Problem 4
 (define (expand lst)
