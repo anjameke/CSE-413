@@ -81,7 +81,4 @@
           (else #f)))
 
 (define (isBST tree)
-    (let ((order (inorder tree)))
-      (if (eq? #t order)
-          #t
-          #f)))
+    (sorted (inorder tree)))
