@@ -57,5 +57,4 @@
 (define (contains item tree)
     (cond ((null? tree) #f)
           ((equal? item (value tree)) #t)
-          ((< item (value tree)) (contains item (left tree)))
-          ((> item (value tree)) (contains item (right tree)))))
+          (else (or (contains item (left tree)) (contains item (right tree))))))
