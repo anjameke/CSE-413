@@ -37,7 +37,7 @@
 (define (expand lst)
    (cond ((null? lst) '())
          ((not (pair? (car lst))) (cons (car lst) (expand (cdr lst))))
-         ((< (caar lst) 1) (expand (cdr lst)))
+         ((= (caar lst) 0) (expand (cdr lst)))
          (else (cons (cadar lst) (expand (cons (cons (- (caar lst) 1) (cdar lst))
                                                 (cdr lst)))))))
 
@@ -64,7 +64,10 @@
           (else (or (contains item (left tree)) (contains item (right tree))))))
 
 ;; Problem 5d
-
+(define (leaves tree)
+    (cond ((null? tree) '())
+          ((and (null? (left tree)) (null? (right tree))) (list (value tree)))
+          (else (append (leaves (left tree)) (leaves (right tree))))))
 
 
 ;; Problem 5e
