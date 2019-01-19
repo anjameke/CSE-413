@@ -5,6 +5,8 @@
 
 (provide (all-defined-out))
 
+;; PART II
+
 ;; Problem 1
 (define (lengtht lst)
     (lengthtaux lst 0))
@@ -42,3 +44,9 @@
       (cond ((null? filt) #f)
             ((not (eq? (length lst) (length filt))) #f)
             (else #t)))))
+
+;; PART III
+
+;; problem 1
+(define (make-expr left-op operator right-op)
+    (list left-op operator right-op))
