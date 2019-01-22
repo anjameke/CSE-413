@@ -50,3 +50,32 @@
 ;; problem 1
 (define (make-expr left-op operator right-op)
     (list left-op operator right-op))
+    
+(define (operator exprlst)
+        (cadr exprlst))
+
+(define (left-op exprlst)
+      (car exprlst))
+
+(define (right-op exprlst)
+      (caddr exprlst))
+
+
+(define (preorder expr-tree)
+    (cond ((null? expr-tree) '())
+          ((and (number? (left-op expr-tree)) (number? (right-op expr-tree)))
+            (flatten (append (list (operator expr-tree)
+                                   (left-op expr-tree)
+                                   (right-op expr-tree)))))
+           ((and (number? (left-op expr-tree)) (not (number? (right-op expr-tree))))
+            (flatten (append (list (operator expr-tree)
+                                   (left-op expr-tree)
+                                   (preorder (right-op expr-tree))))))
+           ((and (number? (right-op expr-tree)) (not (number? (right-op expr-tree))))
+            (flatten (append (list (operator expr-tree)
+                                   (preorder (left-op expr-tree))
+                                   (right-op expr-tree)))))
+           ((and (not (number? (left-op expr-tree))) (not (number? (right-op expr-tree))))
+            (flatten (append (list (operator expr-tree)
+                                   (preorder (left-op expr-tree))
+                                   (preorder (right-op expr-tree))))))))
