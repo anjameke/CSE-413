@@ -120,6 +120,7 @@
 
 ;; problem 3
 (define (eval-tree expr-tree)
+    (if (null? expr-tree) 0
     (let ((op (operator expr-tree))
           (expr1 (if (number? (left-op expr-tree))
                      (left-op expr-tree)
@@ -133,7 +134,7 @@
             ((eq? op '*)
              (* expr1 expr2))
             ((eq? op '/)
-             (/ expr1 expr2)))))
+             (/ expr1 expr2))))))
 
 ;; problem 4
 (define (map-leaves f expr-tree)
