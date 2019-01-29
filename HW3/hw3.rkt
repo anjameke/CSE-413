@@ -1,5 +1,8 @@
 #lang racket
 
+(define (make-sum lst)
+    (cons '+ lst))
+
 (define (get-op E) (car E))
 
 (define (diff-constant x E)
@@ -8,13 +11,13 @@
     (if (eq? v1 v2) 1 0))
 
 (define (diff-sum x E)
-    (make-lst (diff x (cadr E)) (diff x (caddr E))))
+    (make-sum (map diff (make-list (length (cdr E)) x) (cdr E))))
 
-(define (make-product lst1 lst2)
-  (list '* lst1 lst2))
+(define (make-product lst)
+  (cons '* lst))
 
-(define (make-expt lst1 lst2)
-  (list 'expt lst1 lst2))
+(define (make-expt lst)
+  (cons 'expt lst))
 
 (define (get-base E)
   (cadr E))
@@ -23,18 +26,14 @@
   (caddr E))
 
 (define (diff-product x E)
-  (make-lst (make-product (diff x (cadr E)) (caddr E))
+  (make-sum (make-product (diff x (cadr E)) (caddr E))
             (make-product (cadr E) (diff x (caddr E)))))
 
 (define (diff-expt x E)
     (make-product (get-power E)
                   (make-product (make-expt (get-base E)
                                            (- (get-power E) 1))
-                                (diff x (get-base E))
-                                )))
-
-(define (make-lst lst1 lst2)
-    (list '+ lst1 lst2))
+                                (diff x (get-base E)))))
 
 (define diff-dispatch
    (list (list '+ diff-sum)
