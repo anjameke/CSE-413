@@ -18,7 +18,13 @@
             (make-product (cadr E) (diff x (caddr E)))))
 
 (define (diff-expt x E)
-    (make-product (caddr E) (list (car E) (- (caddr E) 1))))
+    (make-product (caddr E)
+                  (if (not (eq? x (cadr E)))
+                      0
+                      (list (car E) (cadr E)
+                                  (if (number? (caddr E))
+                                      (- (caddr E) 1)
+                                      (diff x (caddr E)))))))
 
 (define (make-lst lst1 lst2)
     (list '+ lst1 lst2))
