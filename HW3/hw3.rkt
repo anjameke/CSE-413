@@ -13,18 +13,25 @@
 (define (make-product lst1 lst2)
   (list '* lst1 lst2))
 
+(define (make-expt lst1 lst2)
+  (list 'expt lst1 lst2))
+
+(define (get-base E)
+  (cadr E))
+
+(define (get-power E)
+  (caddr E))
+
 (define (diff-product x E)
   (make-lst (make-product (diff x (cadr E)) (caddr E))
             (make-product (cadr E) (diff x (caddr E)))))
 
 (define (diff-expt x E)
-    (make-product (caddr E)
-                  (if (not (eq? x (cadr E)))
-                      0
-                      (list (car E) (cadr E)
-                                  (if (number? (caddr E))
-                                      (- (caddr E) 1)
-                                      (diff x (caddr E)))))))
+    (make-product (get-power E)
+                  (make-product (make-expt (get-base E)
+                                           (- (get-power E) 1))
+                                (diff x (get-base E))
+                                )))
 
 (define (make-lst lst1 lst2)
     (list '+ lst1 lst2))
