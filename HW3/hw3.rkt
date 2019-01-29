@@ -1,3 +1,5 @@
+#lang racket
+
 (define (get-op E) (car E))
 
 (define (diff-constant x E)
@@ -8,11 +10,23 @@
 (define (diff-sum x E)
     (make-lst (diff x (cadr E)) (diff x (caddr E))))
 
+(define (make-product lst1 lst2)
+  (list '* lst1 lst2))
+
+(define (diff-product x E)
+  (make-lst (make-product (diff x (cadr E)) (caddr E))
+            (make-product (cadr E) (diff x (caddr E)))))
+
+(define (diff-expt x E)
+    (make-product (caddr E) (list (car E) (- (caddr E) 1))))
+
 (define (make-lst lst1 lst2)
     (list '+ lst1 lst2))
 
 (define diff-dispatch
-   (list (list '+ diff-sum)))
+   (list (list '+ diff-sum)
+         (list '* diff-product)
+         (list 'expt diff-expt)))
 
 (define (get-op-lst-from-table op table)
   (cadr (assoc op table)))
