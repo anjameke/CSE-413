@@ -1,5 +1,5 @@
-(provide diff)
 #lang racket
+(provide diff)
 
 (define (make-sum lst)
     (cons '+ lst))
