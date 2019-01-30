@@ -1,3 +1,4 @@
+(provide diff)
 #lang racket
 
 (define (make-sum lst)
