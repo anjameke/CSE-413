@@ -10,3 +10,9 @@
                                                      "blue"
                                                      "red")))))])
       (lambda() (f "red"))))
+
+;; problem 2
+(define (take st n)
+  (if (= n 0)
+      '()
+      (cons (car (st)) (take (cdr (st)) (- n 1)))))
