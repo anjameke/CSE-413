@@ -16,3 +16,20 @@
   (if (= n 0)
       '()
       (cons (car (st)) (take (cdr (st)) (- n 1)))))
+
+;; problem 3
+(define (combm x y)
+    (letrec ((memo null)
+             (fact (lambda (n)
+                     (if (< n 2)
+                         1
+                         (* n (fact (- n 1))))))
+             (new-ans (lambda (x y) (/ (fact x) (* (fact y) (fact (- x y))))))
+             (f (lambda (x y)
+                (let ((ans (assoc (list x y) memo)))
+                    (if ans
+                        (cdr ans)
+                        (begin
+                            (set! memo (cons (cons (list x y) (cons (new-ans x y) '())) memo))
+                            (new-ans x y)))))))
+     (f x y)))
