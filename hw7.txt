@@ -1,0 +1,52 @@
+Script started on Thu Mar  7 18:35:34 2019
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                            ]2;alee@Andrews-MacBook-Pro: ~/git/CSE-413]1;~/git/CSE-413[0m[27m[24m[J[01;32m➜  [36mCSE-413[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[?1h=[?2004h[32mr[39m[90muby hw7.rb[39m[10D[1m[31mr[1m[31mu[0m[39m[0m[32mr[0m[32mu[32mb[32my[39m[39m [39m[4mh[39m[4mw[39m[4m7[39m[4m.[39m[4mr[39m[4mb[24m[24m-[24mv[24m [24m [24m [24m [4mh[4mw[4m7.rb[24m[?1l>[?2004l
+]2;ruby hw7.rb]1;rubyInput stuff now...
+1
+NUMBER(1.0)
+
+2
+NUMBER(2.0)
+
+1 + 1
+NUMBER(1.0)
+
+PLUS(+)
+
+NUMBER(1.0)
+
+_[K+
+PLUS(+)
+
+abc
+ID(abc)
+
+123abc
+NUMBER(123.0)
+
+ID(abc)
+
+z[Ka**y
+ID(a)
+
+POWER(**)
+
+ID(y)
+
+123*/+
+NUMBER(123.0)
+
+MULT(*)
+
+DIVIDE(/)
+
+PLUS(+)
+
+(
+RPAREN
+
+)
+LPAREN
+
+
+quit
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                            ]2;alee@Andrews-MacBook-Pro: ~/git/CSE-413]1;~/git/CSE-413[0m[27m[24m[J[01;32m➜  [36mCSE-413[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[?1h=[?2004h[4mq[24m[4mq[4mu[24m[24m[1m[31mq[24m[1m[31mu[1m[31mi[0m[39m[1m[31mi[1m[31mt[0m[39m[1m[31mi[0m[39m[0m[39m [0m[39m[4mq[0m[39m[4mu[24m[0m[39m [4mq[24m[24m [24m 

@@ -1,0 +1,22 @@
+1
+1.0
+
+1 + 2
+3.0
+
+2 - 1
+1.0
+
+8 *3
+24.0
+
+sqrt(4)
+2.0
+
+x = 1
+
+list
+x is bound to 1
+
+quit
+QUITTING...
